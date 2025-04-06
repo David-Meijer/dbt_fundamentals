@@ -4,6 +4,8 @@
 
 import duckdb
 
+#connect duckdb to persisted database file
+#change name of the duckdb database file in order to create another database file
 con = duckdb.connect('raw_files/raw_files_database.duckdb')
 
 con.sql('CREATE SCHEMA IF NOT EXISTS raw;')
