@@ -23,9 +23,9 @@ models:
         tests:
           - not_null
 
-  ##################################
+  ##############################
   #stg.jaffle_shop_orders table#
-  ##################################
+  ##############################
   - name: jaffle_shop_orders
     description: All customer orders from the jaffle shop web shop. Only column renames compared to source table. 
     columns:
