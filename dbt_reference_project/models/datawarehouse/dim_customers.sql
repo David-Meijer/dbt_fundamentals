@@ -17,6 +17,18 @@ orders AS (
     FROM {{ref('jaffle_shop_orders')}}
 )
 ,
+customer_orders AS (
+    SELECT
+        customer_id
+        ,MIN(order_date) AS first_order_date
+        ,MAX(order_date) AS most_recent_order_date
+        ,COUNT(order_id) AS number_of_orders
+    FROM orders
+    GROUP BY customer_id
+)
+,
+--Calculating the lifetime value per customer using the orders again and keeping only records where payment is 'success' 
+--This is done isolated as the payments table can have more than 1 record per order_id.
 customer_lifetime_value AS (
     SELECT
          orders.customer_id
@@ -28,22 +40,13 @@ customer_lifetime_value AS (
     GROUP BY orders.customer_id
 )
 ,
-customer_orders AS (
-    SELECT
-        customer_id
-        ,MIN(order_date) AS first_order_date
-        ,max(order_date) AS most_recent_order_date
-        ,COUNT(order_id) AS number_of_orders
-    FROM orders
-    GROUP BY customer_id
-)
-,dim_customer AS(
+dim_customer AS(
     SELECT 
          customers.customer_id
         ,customers.first_name
         ,customers.last_name 
-        ,COALESCE(customer_orders.first_order_date, NULL)       AS first_order_date
-        ,COALESCE(customer_orders.most_recent_order_date, NULL) AS most_recent_order_date
+        ,customer_orders.first_order_date                       AS first_order_date
+        ,customer_orders.most_recent_order_date                 AS most_recent_order_date
         ,COALESCE(customer_orders.number_of_orders, 0)          AS number_of_orders
         ,COALESCE(customer_lifetime_value.lifetime_value, 0)    AS lifetime_value 
     FROM customers
