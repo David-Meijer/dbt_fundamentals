@@ -4,4 +4,8 @@ dbt_reference_project:
       type: duckdb
       path: ../database.duckdb
       threads: 4
+      attach:
+        - path: "../raw_files/raw_files_database.duckdb"
+          type: duckdb
+          alias: raw_files_database
   target: dev

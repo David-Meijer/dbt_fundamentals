@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: raw_files_database #specified in profiles.yml
+    schema: raw
+    tables:
+      - name: jaffle_shop_customers
+      - name: jaffle_shop_orders
+
+  - name: stripe
+    database: raw_files_database #specified in profiles.yml
+    schema: raw
+    tables: 
+      - name: stripe_payments
