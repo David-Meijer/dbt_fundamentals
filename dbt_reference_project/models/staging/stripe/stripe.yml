@@ -2,9 +2,9 @@ version: 2
 
 models:
   ###############################
-  #stg.stg_stripe_payments table#
+  #stg.stripe_payments table#
   ###############################
-  - name: stg_stripe_payments
+  - name: stripe_payments
     description: stripe payment data tracing to customer orders from the jaffle shop web shop. Only column renames compared to source table. 
     columns:
 
@@ -19,7 +19,7 @@ models:
       tests:
         - not_null
         - relationships:
-            to: ref('stg_jaffle_shop_orders')
+            to: ref('jaffle_shop_orders')
             field: order_id 
 
     - name: payment_method
