@@ -1,9 +1,9 @@
 version: 2
 
 models:
-  ###############################
+  ###########################
   #stg.stripe_payments table#
-  ###############################
+  ###########################
   - name: stripe_payments
     description: stripe payment data tracing to customer orders from the jaffle shop web shop. Only column renames compared to source table. 
     columns:
