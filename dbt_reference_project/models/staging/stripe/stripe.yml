@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  ###############################
+  #stg.stg_stripe_payments table#
+  ###############################
+  - name: stg_stripe_payments
+    description: stripe payment data tracing to customer orders from the jaffle shop web shop. Only column renames compared to source table. 
+    columns:
+
+    - name: payment_id
+      description: natural key coming from the jaffle shop source database.
+      tests: 
+        - not_null
+        - unique
+
+    - name: order_id
+      description: Natural key (foreign) from the jaffle shop source database. References the customer orders by id in the jaffle shop orders table.
+      tests:
+        - not_null
+        - relationships:
+            to: ref('stg_jaffle_shop_orders')
+            value: order_id 
+
+    - name: payment_method
+
+    - name: status
+
+    - name: amount
+      description: Order amount in euros (cents).
+
+    - name: created
+      desciption: Day of creation (in source database)
