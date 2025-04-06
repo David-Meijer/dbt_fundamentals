@@ -1,9 +1,9 @@
 version: 2
 
 models:
-  ##################################
+  ##############################
   #stg.jaffle_shop_orders table#
-  ##################################
+  ##############################
   - name: jaffle_shop_customers
     description: All customers from the jaffle shop web shop. Only column renames compared to source table. Customers are unique.
     columns:
