@@ -1,0 +1,7 @@
+dbt_reference_project:
+  outputs:
+    dev:
+      type: duckdb
+      path: database.duckdb
+      threads: 4
+  target: dev
