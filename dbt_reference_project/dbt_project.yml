@@ -36,10 +36,10 @@ models:
       +schema: example
       +materialized: view
     # schema names are exactly as stated here using a macro that overrides default behavior
-    stg:
+    staging:
       +schema: stg
       +materialized: table
-    dwh:
+    datawarehouse:
       +schema: dwh
       +materialized: table
     mart:

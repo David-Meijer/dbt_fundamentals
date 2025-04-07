@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  ##############################
+  #stg.jaffle_shop_orders table#
+  ##############################
+  - name: jaffle_shop_customers
+    description: All customers from the jaffle shop web shop. Only column renames compared to source table. Customers are unique.
+    columns:
+
+      - name: customer_id
+        description: Natural key from the jaffle shop source database.
+        tests: 
+          - unique
+          - not_null
+      
+      - name: first_name
+        tests:
+          - not_null
+
+      - name: last_name
+        description: First letter followed by a period.
+        tests:
+          - not_null
+
+  ##############################
+  #stg.jaffle_shop_orders table#
+  ##############################
+  - name: jaffle_shop_orders
+    description: All customer orders from the jaffle shop web shop. Only column renames compared to source table. 
+    columns:
+
+      - name: order_id 
+        description: Natural key from the jaffle shop source database.
+
+      - name: customer_id
+        description: Natural key (foreign) from the jaffle shop source database. References the customers by id in the jaffle shop customers table.
+        tests:
+          - not_null
+          - relationships:
+             to: ref('jaffle_shop_customers')
+             field: customer_id
+        
+      - name: order_date
+        description: yyyy/mm/dd
+        tests:
+          - not_null
+
+      - name: status
+        description: "{{doc('order_status')}}"
+        tests: 
+          - accepted_values: 
+              values: ['shipped', 'completed', 'return_pending', 'returned', 'placed']

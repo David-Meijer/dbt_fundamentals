@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: source tables belonging to the jaffle_shop web store
+    database: raw_files_database #specified in profiles.yml
+    schema: raw
+    tables:
+
+      - name: jaffle_shop_customers
+        description: jaffle shop source table containing web shop customers
+
+      - name: jaffle_shop_orders
+        description: jaffle shop source table containing web shop customer orders on the web shop
+
+  - name: stripe
+    description: source tables belonging to the stripe payment method on the web store
+    database: raw_files_database #specified in profiles.yml
+    schema: raw
+    tables: 
+    
+      - name: stripe_payments
+        description: stripe source table containing payment information of customers using the stripe payment method on the web shop

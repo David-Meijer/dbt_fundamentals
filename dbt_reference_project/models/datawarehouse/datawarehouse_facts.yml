@@ -1,0 +1,21 @@
+version: 2
+
+models:
+######################
+#dwh.fact_order table#
+######################  
+  - name: fact_orders
+    description: All jaffle shop web store orders
+    columns:
+
+    - name: order_id
+      tests:
+        - not_null
+
+    - name: customer_id
+      description: Foreign key, references dim_customer
+      tests:
+        - not_null
+        
+    - name: amount
+      description: Order amount in euros.
