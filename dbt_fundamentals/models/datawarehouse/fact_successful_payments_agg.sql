@@ -11,7 +11,7 @@ WITH payments AS(
         ,status
         ,amount
         ,created
-    FROM {{ ref('stripe_payments')}}
+    FROM {{ ref('stripe_payments') }}
 )
 ,
 payments_pivoted AS (
