@@ -1,4 +1,4 @@
-dbt_reference_project:
+dbt_fundamentals:
   outputs:
     dev:
       type: duckdb
