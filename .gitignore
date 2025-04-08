@@ -1,7 +1,7 @@
 database.duckdb
 /logs
 
-dbt_reference_project/target/
-dbt_reference_project/dbt_packages/
-dbt_reference_project/logs/
-dbt_reference_project/.user.yml
+dbt_fundamentals/target/
+dbt_fundamentals/dbt_packages/
+dbt_fundamentals/logs/
+dbt_fundamentals/.user.yml
