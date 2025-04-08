@@ -1,7 +1,9 @@
-database.duckdb
+*.duckdb
 /logs
+
 
 dbt_fundamentals/target/
 dbt_fundamentals/dbt_packages/
 dbt_fundamentals/logs/
 dbt_fundamentals/.user.yml
+raw_files/raw_files_database.duckdb
