@@ -4,3 +4,4 @@ dbt_fundamentals/target/
 dbt_fundamentals/dbt_packages/
 dbt_fundamentals/logs/
 dbt_fundamentals/.user.yml
+dbt_fundamentals/package0lock.yml

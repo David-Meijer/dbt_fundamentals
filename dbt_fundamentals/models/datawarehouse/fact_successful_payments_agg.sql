@@ -1,7 +1,8 @@
 -------------------------------------------
 -- payment methods used in jinja for loop--
 -------------------------------------------
-{%- set payment_methods = ['coupon', 'gift_card', 'credit_card', 'bank_transfer'] -%}
+{#Get different payment methods#}
+{% set payment_methods = dbt_utils.get_column_values(table=ref('stripe_payments'), column='payment_method') %}
 
 WITH payments AS(
     SELECT
