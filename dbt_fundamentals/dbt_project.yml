@@ -45,3 +45,6 @@ models:
     mart:
       +schema: mart
       +materialized: table
+    test:
+      +schema: test
+      +materialized: table
